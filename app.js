@@ -84,7 +84,8 @@ function education(item){
     </div>
     `   
 }
-const response = await fetch("json/main.json");
+const path = location.hash.split('#')[1];
+const response = await fetch(`json/${path || 'main'}.json`);
 const resume = await response.json();
 q("#idcard").appendChild(getNode(idcard(resume)));
 q("#contact").appendChild(getNode(contact(resume)));
